@@ -3,6 +3,9 @@ import Header from "./_components/header"
 import { Button } from "./_components/ui/button"
 import { Input } from "./_components/ui/input"
 import Image from "next/image"
+import { Card, CardContent } from "./_components/ui/card"
+import { Badge } from "./_components/ui/badge"
+import { Avatar, AvatarImage } from "./_components/ui/avatar"
 
 export default function Home() {
   return (
@@ -19,7 +22,7 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className="relative h-[150px] w-full">
+        <div className="relative mt-6 h-[150px] w-full">
           <Image
             alt="Agende seu horario"
             src="/banner-01.png"
@@ -27,6 +30,30 @@ export default function Home() {
             className="rounded-xl object-cover"
           />
         </div>
+
+        <Card className="mt-6">
+          <CardContent className="flex justify-between p-0">
+            {/* Esquerda */}
+            <div className="flex flex-col gap-2 py-5 pl-5">
+              <Badge className="w-fit">Confirmado</Badge>
+              <h3 className="font-bold">Corte de Cabelo</h3>
+
+              <div className="flex items-center gap-2">
+                <Avatar className="h-6 w-6">
+                  <AvatarImage src="https://graces.com.br/wp-content/uploads/2019/02/o-que-nao-pode-faltar-na-sua-barbearia-equipamentos.jpg" />
+                </Avatar>
+                <p className="text-sm">Barbearia OldHouse</p>
+              </div>
+            </div>
+
+            {/* Direita */}
+            <div className="flex flex-col items-center justify-center border-l-2 border-solid px-5">
+              <p className="text-sm">Agosto</p>
+              <p className="text-2xl font-bold">05</p>
+              <p className="text-sm">20:00</p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )
