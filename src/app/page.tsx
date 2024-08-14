@@ -1,14 +1,13 @@
 import { SearchIcon } from "lucide-react"
+import Image from "next/image"
+import BarberShopItem from "./_components/barbershop-item"
+import BookingItem from "./_components/booking-item"
 import Header from "./_components/header"
 import { Button } from "./_components/ui/button"
-import { Input } from "./_components/ui/input"
-import Image from "next/image"
 import { Card, CardContent } from "./_components/ui/card"
-import { Badge } from "./_components/ui/badge"
-import { Avatar, AvatarImage } from "./_components/ui/avatar"
-import { db } from "./_lib/prisma"
-import BarberShopItem from "./_components/barbershop-item"
+import { Input } from "./_components/ui/input"
 import { quickSearchOptions } from "./_constants/search"
+import { db } from "./_lib/prisma"
 
 const Home = async () => {
   const barbershop = await db.barbershop.findMany({})
@@ -59,33 +58,7 @@ const Home = async () => {
         </div>
 
         {/* Agendamentos */}
-        <h2 className="mb-6 mt-6 text-xs font-bold uppercase text-gray-400">
-          Agendamentos
-        </h2>
-
-        <Card>
-          <CardContent className="flex justify-between p-0">
-            {/* Esquerda */}
-            <div className="flex flex-col gap-2 py-5 pl-5">
-              <Badge className="w-fit">Confirmado</Badge>
-              <h3 className="font-bold">Corte de Cabelo</h3>
-
-              <div className="flex items-center gap-2">
-                <Avatar className="h-6 w-6">
-                  <AvatarImage src="https://graces.com.br/wp-content/uploads/2019/02/o-que-nao-pode-faltar-na-sua-barbearia-equipamentos.jpg" />
-                </Avatar>
-                <p className="text-sm">Barbearia OldHouse</p>
-              </div>
-            </div>
-
-            {/* Direita */}
-            <div className="flex flex-col items-center justify-center border-l-2 border-solid px-5">
-              <p className="text-sm">Agosto</p>
-              <p className="text-2xl font-bold">05</p>
-              <p className="text-sm">20:00</p>
-            </div>
-          </CardContent>
-        </Card>
+        <BookingItem />
 
         <h2 className="mb-6 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
