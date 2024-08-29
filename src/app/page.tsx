@@ -1,10 +1,9 @@
-import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 import BarberShopItem from "./_components/barbershop-item"
 import BookingItem from "./_components/booking-item"
 import Header from "./_components/header"
+import Search from "./_components/search"
 import { Button } from "./_components/ui/button"
-import { Input } from "./_components/ui/input"
 import { quickSearchOptions } from "./_constants/search"
 import { db } from "./_lib/prisma"
 
@@ -24,13 +23,9 @@ const Home = async () => {
         <p>Seja bem-vindo(a)!</p>
 
         {/* Pesquisa */}
-        <div className="mt-6 flex items-center gap-2">
-          <Input placeholder="Search" />
-          <Button>
-            <SearchIcon />
-          </Button>
+        <div className="mt-6">
+          <Search />
         </div>
-
         {/* Busca rapida */}
         <div className="mt-6 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (
