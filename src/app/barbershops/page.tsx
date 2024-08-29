@@ -1,4 +1,6 @@
 import BarberShopItem from "../_components/barbershop-item"
+import Header from "../_components/header"
+import Search from "../_components/search"
 import { db } from "../_lib/prisma"
 
 interface BarbershopsPageProps {
@@ -18,14 +20,20 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
   })
   return (
     <div>
-      <h2 className="mb-6 mt-6 text-xs font-bold uppercase text-gray-400">
-        Resultados para {searchParams?.search}
-      </h2>
+      <Header />
+      <div className="my-6 px-5">
+        <Search />
+      </div>
+      <div className="px-5">
+        <h2 className="mb-6 mt-6 text-xs font-bold uppercase text-gray-400">
+          Resultados para {searchParams?.search}
+        </h2>
 
-      <div className="grid grid-cols-2 gap-4">
-        {barbershop.map((barbershop) => (
-          <BarberShopItem key={barbershop.id} barbershop={barbershop} />
-        ))}
+        <div className="grid grid-cols-2 gap-4">
+          {barbershop.map((barbershop) => (
+            <BarberShopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
     </div>
   )
