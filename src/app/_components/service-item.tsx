@@ -125,7 +125,6 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
       toast.success("Reserva criada com sucesso!")
       await createBooking({
         serviceId: service.id,
-        userId: (data?.user as any).id,
         date: newDate,
       })
       handleBookingSheetOpenChange()
